@@ -8,7 +8,7 @@ function Login() {
         
             <>
                 {/* component */}
-                <div className="flex justify-center  bg-100 md:w-2/6 w-full mx-auto h-screen">
+                <div className="flex justify-center  bg-100 md:w-2/6 w-100 m-2  ">
                     <div className="container  my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
                         {/* header */}
                         <div className="text-center my-6">
@@ -23,13 +23,13 @@ function Login() {
                                         htmlFor="email"
                                         className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
                                     >
-                                        Email Address
+                                        Email Address/Phone No.
                                     </label>
                                     <input
                                         type="email"
                                         name="email"
                                         id="email"
-                                        placeholder="Your email address"
+                                        placeholder="Your email-address/phone "
                                         className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                                     />
                                 </div>
@@ -84,7 +84,7 @@ function Login() {
                                 <div className="w-full bg-gray-200 mt-3 h-px" />
                             </div>
                             {/* alternate sign-in */}
-                            coming soon
+                            {/* coming soon */}
                             {/* <div className="flex flex-row gap-2">
                                 <button className="bg-green-500 text-white w-full p-2 flex flex-row justify-center gap-2 items-center rounded-sm hover:bg-green-600 duration-100 ease-in-out">
                                     <svg
