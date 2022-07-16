@@ -5,11 +5,11 @@ function Login() {
     const navigate = useNavigate()
     return (
         <>
-        
-            <>
-                {/* component */}
-                <div className="flex justify-center  bg-100 md:w-2/6 w-100 m-2  ">
-                    <div className="container  my-auto max-w-md border-2 border-gray-200 p-3 bg-white">
+            {/* component */}
+            <div className="container mx-auto md:mt-20 ">
+                <div className="flex justify-center md:px-6  py-1  my-auto w-full">
+
+                    <div className="w-full md:w-4/6 lg:w-2/6 bg-white md:p-5 p-0 rounded-lg lg:rounded-l-none border-2 my-auto mx-2">
                         {/* header */}
                         <div className="text-center my-6">
                             <h1 className="text-3xl font-semibold text-gray-700">Sign in</h1>
@@ -68,7 +68,7 @@ function Login() {
                                     Don't have an account yet?
                                     <a
                                         href="#"
-                                        onClick={()=>navigate('/signup')}
+                                        onClick={() => navigate('/signup')}
                                         className="font-semibold text-indigo-500 focus:text-indigo-600 focus:outline-none focus:underline"
                                     >
                                         Sign up
@@ -132,7 +132,8 @@ function Login() {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
+
 
             {/* <div className='card  container  col-md-4  col-12 py-3 pb-4 mt-5 ' >
                 <div className=' my-2 mx-auto'>

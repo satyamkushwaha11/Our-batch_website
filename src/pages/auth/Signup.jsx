@@ -8,10 +8,10 @@ function Signup() {
       <div className="container mx-auto">
         <div className="flex justify-center md:px-6  py-1  my-auto w-full">
 
-          <div className="w-full md:w-2/6  bg-white md:p-5 p-0 rounded-lg lg:rounded-l-none border-2 my-auto mx-2">
+          <div className="w-full md:w-4/6 lg:w-2/6  bg-white md:p-5 p-0 rounded-lg lg:rounded-l-none border-2 my-auto mx-2">
             <h3 className="pt-4 text-3xl font-semibold text-gray-700 text-center">Create an Account!</h3>
             <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-              <div className="mb-4 md:flex md:justify-between">
+              <div className="mb-4 lg:flex md:justify-between">
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700"
@@ -40,21 +40,22 @@ function Signup() {
                     placeholder="Last Name"
                   />
                 </div>
-                <div className="md:ml-2">
-                  <label
-                    className="block mb-2 text-sm font-bold text-gray-700"
-                    htmlFor="phone"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    id="phone"
-                    type="phone"
-                    placeholder="Phone no."
-                  />
-                </div>
 
+
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block mb-2 text-sm font-bold text-gray-700"
+                  htmlFor="phone"
+                >
+                  Phone Number
+                </label>
+                <input
+                  className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="phone"
+                  type="phone"
+                  placeholder="Phone no."
+                />
               </div>
               <div className="mb-4">
                 <label
@@ -70,7 +71,7 @@ function Signup() {
                   placeholder="Email"
                 />
               </div>
-              <div className="mb-4 md:flex md:justify-between">
+              <div className="mb-4 md:flex md:justify-between items-end">
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700"
@@ -84,9 +85,9 @@ function Signup() {
                     type="password"
                     placeholder="******************"
                   />
-                  <p className="text-xs italic text-red-500">
+                  {/* <p className="text-xs italic text-red-500">
                     Please choose a password.
-                  </p>
+                  </p> */}
                 </div>
                 <div className="md:ml-2">
                   <label
