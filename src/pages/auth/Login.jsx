@@ -1,8 +1,54 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getLocalStorage, setLocalStorage } from '../../config/session'
+import { login } from '../../redux/actions/auth.action'
+import { login_Failed } from '../../redux/reducers/auth.reducers/auth.reducer'
 
 function Login() {
     const navigate = useNavigate()
+   
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
+   
+    useEffect(()=>{
+        let token = getLocalStorage('token')
+        if (token) {
+            navigate("/")
+        }
+    },[])
+
+  
+   
+
+    const onSubmit = () => {
+        let login_payload = {
+            email,
+            password
+        }
+        console.log('asdfasd');
+        dispatch(login(login_payload)).
+            then((result) => {
+                console.log(result, 'llllllllllll');
+                const { email, firstName, lastName, role, token, userName } = result?.data
+                const dataStore = { email, firstName, lastName, role, token, userName }
+                for (const property in dataStore) {
+                    // console.log(`${property}: ${result?.data?.data[property]}`);
+                    // console.log(property,dataStore[property]);
+                    setLocalStorage(property, dataStore[property])
+                }
+                navigate('/', { replace: true })
+
+            }).catch((err) => {
+                dispatch(login_Failed())
+                console.log(err)
+            });
+
+    }
+
     return (
         <>
             {/* component */}
@@ -29,6 +75,7 @@ function Login() {
                                         type="email"
                                         name="email"
                                         id="email"
+                                        onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Your email-address/phone "
                                         className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                                     />
@@ -52,6 +99,7 @@ function Login() {
                                         type="password"
                                         name="password"
                                         id="password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                         placeholder="Your password"
                                         className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                                     />
@@ -60,6 +108,7 @@ function Login() {
                                     <button
                                         type="button"
                                         className="w-full px-3 py-4 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none duration-100 ease-in-out"
+                                        onClick={onSubmit}
                                     >
                                         Sign in
                                     </button>

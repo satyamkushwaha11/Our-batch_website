@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
@@ -10,11 +10,11 @@ function Layout(props) {
     const location = useLocation()
     const token = localStorage.getItem('token')
     console.log(location.pathname);
-    useEffect(() => {
-        if (!token) {
-            navigate("/login");
-        }
-    }, [])
+    // useLayoutEffect(() => {
+    if (!token) {
+        navigate("/login");
+    }
+    // }, [])
 
 
     return (

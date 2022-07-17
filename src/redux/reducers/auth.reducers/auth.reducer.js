@@ -7,31 +7,38 @@ export const authentication = createSlice({
   name: "authentication",
   initialState,
   reducers: {
-   loging_Requested: (state) => {
-      state.logging=true,
-      state.loggedIn=false,
-      state.msg="logging",
-      state.user=user
+    loging_Requested: (state) => {
+      state.logging = true;
+      state.loggedIn = false;
+      state.msg = "logging";
+      state.user = user
+      console.log('logiiign');
+      return state;
     },
     login_Success: (state) => {
-      state.logging=false,
-      state.loggedIn=true,
-      state.msg="logged in successfully"
-      state.user=user
+      state.logging = false;
+      state.loggedIn = true;
+      state.msg = "logged in successfully";
+      state.user = user;
+      return state;
     },
     login_Failed: (state) => {
-      state.logging=false,
-      state.loggedIn=false,
-      state.msg="logging fail check password or email"
+      state.logging = false;
+      state.loggedIn = false;
+      state.msg = "logging fail check password or email";
+      return state;
+
     },
-  logout: (state) => {
-      state.msg="logged out"
+    logout: (state) => {
+      state.msg = "logged out";
+       state.loggedIn = false;
+      return state;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loging_Requested, loging_success, login_Failed, logout } =
-  authentication.actions;
+export const { loging_Requested, login_Success, login_Failed, logout } =  authentication.actions;
 
-export default authentication.reducer;
+let loginReducer;
+export default loginReducer = authentication.reducer;

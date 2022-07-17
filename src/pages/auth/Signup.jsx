@@ -1,8 +1,50 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { getLocalStorage } from '../../config/session'
+import { userSignup } from '../../redux/actions/auth.action'
+import { signup_Failed, signup_Requested } from '../../redux/reducers/auth.reducers/signup.reducer'
+
+const initialUserData = {
+  "firstName": "",
+  "lastName": "",
+  "phone": null,
+  "email": "",
+  "password": ""
+}
 
 function Signup() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [userData, setUserData] = useState(initialUserData)
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  useEffect(() => {
+    let token = getLocalStorage('token')
+    if (token) {
+      navigate("/");
+    }
+  }, [])
+
+  const fillUserData = (key, value) => {
+    setUserData({ ...userData, [key]: value })
+  }
+  const submitForm = () => {
+    dispatch(signup_Requested());
+    if (userData.password !== confirmPassword) {
+      dispatch(signup_Failed({ msg: "password not match" }));
+      alert('password not match')
+      return
+    }
+    dispatch(userSignup(userData))
+      .then((result) => {
+        console.log(result, 'llllllllllll');
+        navigate('/login')
+      }).catch((err) => {
+        console.log(err)
+      });
+  }
+
   return (
     <>
       <div className="container mx-auto">
@@ -24,6 +66,7 @@ function Signup() {
                     id="firstName"
                     type="text"
                     placeholder="First Name"
+                    onChange={(e) => fillUserData("firstName", e.target.value)}
                   />
                 </div>
                 <div className="mb-4 md:mr-2 md:mb-0">
@@ -38,6 +81,7 @@ function Signup() {
                     id="lastName"
                     type="text"
                     placeholder="Last Name"
+                    onChange={(e) => fillUserData("lastName", e.target.value)}
                   />
                 </div>
 
@@ -55,6 +99,7 @@ function Signup() {
                   id="phone"
                   type="phone"
                   placeholder="Phone no."
+                  onChange={(e) => fillUserData("phone", e.target.value)}
                 />
               </div>
               <div className="mb-4">
@@ -69,6 +114,7 @@ function Signup() {
                   id="email"
                   type="email"
                   placeholder="Email"
+                  onChange={(e) => fillUserData("email", e.target.value)}
                 />
               </div>
               <div className="mb-4 md:flex md:justify-between items-end">
@@ -84,6 +130,7 @@ function Signup() {
                     id="password"
                     type="password"
                     placeholder="******************"
+                    onChange={(e) => fillUserData("password", e.target.value)}
                   />
                   {/* <p className="text-xs italic text-red-500">
                     Please choose a password.
@@ -101,6 +148,7 @@ function Signup() {
                     id="c_password"
                     type="password"
                     placeholder="******************"
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>
@@ -108,6 +156,7 @@ function Signup() {
                 <button
                   className="w-full px-4 py-2 font-bold text-white bg-indigo-500 rounded-full hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
                   type="button"
+                  onClick={submitForm}
                 >
                   Register Account
                 </button>
