@@ -10,11 +10,12 @@ function Layout(props) {
     const location = useLocation()
     const token = localStorage.getItem('token')
     console.log(location.pathname);
-    // useLayoutEffect(() => {
+    useEffect(() => {
     if (!token) {
         navigate("/login");
+        return
     }
-    // }, [])
+    }, [])
 
 
     return (
