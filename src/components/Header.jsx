@@ -3,13 +3,13 @@ import React from 'react'
 function Header() {
     return (
         <>
-            <div className='h-4/12   rounded-sm flex justify-between items-center w-full border-b-slate-100 border-b-2'>
+            <div className='h-full   rounded-sm flex justify-between items-center w-full border-b-slate-100 border-b-2'>
                 <div className='w-2/12  flex justify-center'>
                     <div className='w-5/6 h-5/6'>
                         <img src="/icons/our-batch-logo.png" alt="" className='w-5/6 h-5/6'/>
                     </div>
                 </div>
-                <div className='w-6/12 flex px-20 lg:my-0 my-2'>
+                <div className='w-6/12 my-2 sm:flex hidden' >
                     <label htmlFor="simple-search" className="sr-only">
                         Search
                     </label>

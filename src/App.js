@@ -10,12 +10,10 @@ import {
 } from "react-router-dom";
 import publicRoutes from "./routes/public_routes";
 import Layout from "./layout";
-
+import HomePage from "./pages/HomePage/HomePage";
 
 
 function App() {
-
-  
   return (
     <div className="App">
       <Router>
@@ -23,7 +21,7 @@ function App() {
           {publicRoutes.map(({ component: Cmpt, ...route }, index) => (
             <Route key={"publicRoutes" + index} {...route} element={<Cmpt />} />
           ))}
-          <Route path="/" element={<Layout/>} />
+          <Route path="/" element={<HomePage/>} />
         </Routes>
       </Router>
     </div>
