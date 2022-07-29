@@ -23,10 +23,10 @@ function Layout(props) {
 
     return (
         <div className='relative h-screen bg-slate'>
-            <div className=' sm:w-[100%] w-screen sm:h-[10%] h-[7%]'>
+            <div className=' sm:w-[100%] w-screen sm:h-[10%] h-[10%]'>
                 <Header></Header>
             </div>
-            <div className='flex justify-between  sm:min-h-[90%] min-h-[93%] '>
+            <div className='flex justify-between  sm:min-h-[90%] min-h-[90%] '>
                 <div className='sm:block hidden w-2/12 sticky left-0     bg-red-700'>
                     <Sidebar  ></Sidebar>
                 </div>
