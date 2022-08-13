@@ -1,7 +1,8 @@
 import React from 'react'
 
-function Image() {
-    
+function Image(props) {
+  className=props?.className ||""
+  
   return (
     <div>Image</div>
   )

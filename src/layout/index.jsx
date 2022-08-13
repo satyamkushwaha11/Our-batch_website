@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-// import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import { useLocation, useNavigate } from 'react-router-dom'
 // import useDeviceDetect from '../Helper/checkInnerwidth';
 import Sidebar from '../components/Sidebar'
@@ -22,8 +22,10 @@ function Layout(props) {
 
 
     return (
-        <div className='relative h-screen bg-slate'>
-            <div className=' sm:w-[100%] w-screen sm:h-[10%] h-[10%]'>
+        <div className={`relative ${isMobile?"h-[92vh]":"h-screen"} bg-slate`}>
+            <div
+            //  className=' sm:w-[100%] w-screen sm:h-[10%] h-[10%]'
+             >
                 <Header></Header>
             </div>
             <div className='flex justify-between  sm:min-h-[90%] min-h-[90%] '>
