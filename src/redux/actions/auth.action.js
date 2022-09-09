@@ -12,7 +12,7 @@ import {
 } from "../reducers/auth.reducers/signup.reducer";
 
 export const login = (loginData) => {
-  return async function (dispatch) {
+  return async function (dispatch ) {
     dispatch(loging_Requested());
     const result = await Post("/login", loginData);
     // console.log(result);

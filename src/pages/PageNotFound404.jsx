@@ -23,7 +23,7 @@ function PageNotFound404() {
         version="1.1"
         viewBox="0 0 226 249.135"
         width={226}
-        xmlSpace="preserve"
+        xmlSpace="preserve"    
       >
         <circle cx={113} cy={113} fill="#FFE585" r={109} />
         <line

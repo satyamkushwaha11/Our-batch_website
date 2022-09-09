@@ -13,6 +13,7 @@ const useDeviceDetect = () => {
         }
     }, []);
 
+    
     return width;
 }
 
